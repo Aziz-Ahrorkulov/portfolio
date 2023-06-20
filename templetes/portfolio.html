@@ -1,0 +1,303 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Aziz-portfolio</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="{% static 'assets/img/A.png' %}" rel="icon">
+  <link href="{% static 'assets/img/A.png' %}" rel="Avatar">
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top">
+    <div class="container-fluid d-flex justify-content-between align-items-center">
+
+      <h1 class="logo me-auto me-lg-0"><a href="{% url 'index' %}
+        
+        ">Aziz</a></h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
+      <nav id="navbar" class="navbar order-last order-lg-0">
+        <ul>
+          <li><a href="{% url 'index' %}">Home</a></li>
+          <li><a href="about">About</a></li>
+          <li><a href="portfolio">Portfolio</a></li>
+          <li><a href="contact">Contact</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+      {% for s in social %}
+      <div class="header-social-links">
+        <a href="{{ s.facebook }}" class="facebook"><i class="bi bi-facebook"></i></a>
+        <a href="{{ s.instagram }}" class="instagram"><i class="bi bi-instagram"></i></a>
+        <a href="{{ s.linkedin }}" class="linkedin"><i class="bi bi-linkedin"></i></i></a>
+      </div>
+      {% endfor %}
+    </div>
+
+  </header><!-- End Header -->
+
+  <main id="main">
+
+    <!-- ======= Portfolio Section ======= -->
+    <section id="portfolio" class="portfolio">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Portfolio</h2>
+          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint
+            consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit
+            in iste officiis commodi quidem hic quas.</p>
+        </div>
+      </div>
+        <!-- <div class="project-all" style="
+        display: flex;
+        gap: 30px;
+        width: 100%;"> -->
+           
+            <section class="articles">
+              {% for i in project %} 
+              <div class="features">
+                <div class="item item1">
+                  <img class="item-photo"
+                    src="{{ i.img.url }}"
+                    alt="iphone 13 laying between plants on steel rail" />
+                  <div class="item-header">
+                    <h3 class="item-title">{{ i.name }}</h3>
+                  </div>
+                  <a class="item-link" href="{{ i.link }}">Click to see by yourself &rarr;</a>
+                </div>
+              </div>
+              {% endfor %}
+            <!-- </div> -->
+            </section>
+            
+
+            <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+            <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+            <link rel="preconnect" href="https://fonts.googleapis.com" />
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+            <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+
+            <style>
+      html {
+        font-size: 62.5%;
+        font-family: "Lato", sans-serif;
+      }
+
+      h1 {
+        font-size: 3rem;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        margin-bottom: 3rem;
+        color: rgba(9, 146, 105, 0.8);
+      }
+
+      .articles {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .features {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+
+        max-width: 90rem;
+        column-gap: 2rem;
+        row-gap: 2rem;
+      }
+
+      .item {
+        display: flex;
+        flex-direction: column;
+
+        background-image: linear-gradient(to right bottom, #dee2e6, #dbdbdb);
+        box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.507);
+        overflow: hidden;
+        border-radius: 30px;
+        transition: all 0.3s;
+
+        position: relative;
+      }
+
+      .item:hover {
+        transform: translateY(-1.1rem);
+      }
+
+      .item-photo {
+        width: 100%;
+        align-self: center;
+      }
+
+      .item-header {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin: 2rem 2rem;
+        gap: 1rem;
+      }
+
+      .item-icon {
+        width: 2.4rem;
+        height: 2.4rem;
+      }
+
+      .item-title {
+        font-size: 2.4rem;
+        font-weight: 400;
+      }
+
+      .item-text {
+        font-size: 1.6rem;
+        font-weight: 300;
+        line-height: 1.3;
+        padding: 0 2rem;
+        margin-bottom: 3rem;
+      }
+
+      .item-link:link,
+      .item-link:visited {
+        display: inline-block;
+        font-size: 1.6rem;
+
+        padding: 1.6rem 2.4rem;
+        text-decoration: underline #099268;
+        color: #099268;
+
+        /* stick link to the bottom of item */
+        margin-top: auto;
+      }
+
+      .item-link:hover,
+      .item-link:active {
+        color: #3aa886;
+        text-decoration: underline #3aa886;
+      }
+
+      /* TABLETS */
+      @media (max-width: 950px) {
+        h1 {
+          font-size: 2.8rem;
+        }
+
+        .features {
+          grid-template-columns: 1fr 1fr;
+          max-width: 60rem;
+        }
+
+        .item1 {
+          grid-column: span 2;
+        }
+
+        .item-title {
+          font-size: 3rem;
+        }
+
+        .item-text {
+          font-size: 2rem;
+        }
+
+        .item-link:link,
+        .item-link:visited {
+          font-size: 2rem;
+        }
+      }
+
+      /* MOBILES */
+      @media (max-width: 650px) {
+        .features {
+          grid-template-columns: 1fr;
+          max-width: 30rem;
+        }
+
+        .item1 {
+          grid-column: span 1;
+        }
+
+        h1 {
+          font-size: 2.4rem;
+        }
+      }
+            </style>
+            <!-- <div class="card" style="    width: 60%;">
+            <img src="{{ i.img.url }} " class="card-img-top" style="height: 212px;">
+            <div class="card-body">
+              <a href="{{ i.link }}"> <p class="card-text">{{ i.name }} </p> </a>
+            
+          </div> -->
+            <!--  -->
+        <!-- </div> -->
+        <!-- <div class="">
+
+          <div class="">
+            <div class="">
+
+
+              <div class="portfolio-info">
+                
+                <h4>{{ i.name }}</h4>
+                <div class="portfolio-links">
+                  <a href="{{ i.link }}"><img src="{{ i.img }}" class="portfolio-lightbox"></a>
+                   <i class="bx bx-plus"></i></a> 
+                </div>
+              </div>
+              
+
+            </div>
+          </div>
+        </div> -->
+
+      </div>
+    </section><!-- End Portfolio Section -->
+
+  </main><!-- End #main -->
+
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="{% static 'assets/vendor/purecounter/purecounter_vanilla.js' %}"></script>
+  <script src="{% static 'assets/vendor/aos/aos.js' %}"></script>
+  <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/waypoints/noframework.waypoints.js' %}"></script>
+  <script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="{% static 'assets/js/main.js' %}"></script>
+
+</body>
+
+</html>
